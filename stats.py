@@ -1,12 +1,10 @@
-def get_num_words(filepath) :
-    with open(filepath) as f:
-            file_contents = f.read()
+#gets the number of words in file_contents
+def get_num_words(file_contents) :
     num_of_words = len(file_contents.split())
     return num_of_words
 
-def num_for_char(filepath) :
-    with open(filepath) as f:
-        file_contents = f.read()
+#creates a dictionary linking all the different characters to how many times it shows up in the file
+def num_for_char(file_contents) :
     words = file_contents.split()
     char_dictionary = {}
     for word in words :
@@ -19,9 +17,13 @@ def num_for_char(filepath) :
             else :
                 char_dictionary[lowercase_char] = charKey + 1
     return char_dictionary
+
+#returns the value of item and item is the count of char
 def sort_on(item):
     return item["num"]
 
+#splits the dictionary into a list containing dictionaries of each char and its count
+#the list is sorted by the count of each char
 def split_dictionary(char_dictionary) :
     items = char_dictionary.items()
     list_of_items = []
